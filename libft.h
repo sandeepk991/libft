@@ -21,6 +21,8 @@
 char *ft_strnstr(const char *big, const char *little, size_t len);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *s);
+char	*ft_strchr(const char *s, int c);
+void *ft_memcpy(void *dest, const void *src, size_t n);
 int	ft_isalpha(int a);
 int	ft_isdigit(int a);
 
