@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   itoa.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 10:22:38 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/20 10:37:01 by skaur            ###   ########.fr       */
+/*   Created: 2022/10/21 10:33:46 by skaur             #+#    #+#             */
+/*   Updated: 2022/10/21 11:12:50 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft_h"
 
-int main ()
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-  int i;
-  char buffer [33];
-  printf ("Enter a number: ");
-  scanf ("%d",&i);
-  itoa (i,buffer,10);
-  printf ("decimal: %s\n",buffer);
-  itoa (i,buffer,16);
-  printf ("hexadecimal: %s\n",buffer);
-  itoa (i,buffer,2);
-  printf ("binary: %s\n",buffer);
-  return 0;
+	char	*result;
+	size_t	i;
+	size_t	s_len;
+
+	s_len = ft_strlen(s);
+	if (!(result = (char *)malloc(sizeof(char) * (s_len + 1)))
+		return (0);
+	i = 0;
+	while (i < s_len)
+	{
+		result[i] = f(i, s[i]);
+		i++;
+	}
+	result[s_len] = '\0';
+	return (result);
 }
