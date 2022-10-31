@@ -6,36 +6,31 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 10:12:04 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/21 10:17:38 by skaur            ###   ########.fr       */
+/*   Updated: 2022/10/31 13:55:21 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-   char		*p;
-   size_t	c;
+	char	*p;
+	size_t	c;
 
-   c = 0; 
-   p = malloc(len + 1);
-   
-   if (p == NULL)
-   {
-      printf("Unable to allocate memory.\n");
-      exit(1);
-   }
- 
-   while (c < len)
-   {
-      *(p+c) = *(s + start - 1);      
-      s++;
-      c++;
-   }
- 
-   *(p+c) = '\0';
- 
-   return p;
+	c = 0;
+	p = malloc(len + 1);
+	if (p == NULL)
+	{
+		exit(1);
+	}
+	while (c < len)
+	{
+		*(p + c) = *(s + start - 1);
+		s++;
+		c++;
+	}
+	*(p + c) = '\0';
+	return (p);
 }
 /*int main(void)
 {

@@ -6,15 +6,16 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 09:11:58 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/13 13:41:58 by skaur            ###   ########.fr       */
+/*   Updated: 2022/10/31 13:46:47 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-char *ft_strrchr(const char *str, int c)
+
+char	*ft_strrchr(const char *str, int c)
 {
-	char *temp;
-	
+	char	*temp;
+
 	temp = '\0';
 	if (*str != '\0')
 	{

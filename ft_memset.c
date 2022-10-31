@@ -6,14 +6,15 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:24:41 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/11 09:50:48 by skaur            ###   ########.fr       */
+/*   Updated: 2022/10/31 13:00:38 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-void *ft_memset(void *s, int c, size_t n)
+
+void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char *ptr;
+	unsigned char	*ptr;
 
 	ptr = s;
 	while (n-- > 0)
@@ -31,4 +32,4 @@ int main ()
    puts(str);
  
    return(0);
-}/*
+}*/

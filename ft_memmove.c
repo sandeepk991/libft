@@ -6,14 +6,15 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:51:09 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/12 13:30:18 by skaur            ###   ########.fr       */
+/*   Updated: 2022/10/31 12:58:43 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stddef.h>
-void *ft_memmove(void *dest, const void *src, size_t n)
+#include "libft.h"
+
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	*des;
+	unsigned char		*des;
 	const unsigned char	*s;
 
 	if (!dest && !src)
@@ -37,7 +38,6 @@ void *ft_memmove(void *dest, const void *src, size_t n)
 		}
 	}
 	return (dest);
-
 }
 /*#include <stdio.h>
 #include <string.h>

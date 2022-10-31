@@ -6,13 +6,13 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 09:39:59 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/24 10:00:24 by skaur            ###   ########.fr       */
+/*   Updated: 2022/10/31 12:34:17 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*last_node;
 

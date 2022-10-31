@@ -6,21 +6,22 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 13:44:45 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/14 09:31:31 by skaur            ###   ########.fr       */
+/*   Updated: 2022/10/31 12:53:00 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stddef.h>
-void *ft_memchr(const void *s, int c, size_t n)
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char *temp;
-	unsigned char *findchar;
+	unsigned char	*temp;
+	unsigned char	*findchar;
 
 	findchar = '\0';
 	temp = (unsigned char *)s;
 	while (*temp != '\0' && n--)
 	{
-		if(*temp != (unsigned char)c)
+		if (*temp != (unsigned char)c)
 		{
 			temp++;
 		}
@@ -29,7 +30,7 @@ void *ft_memchr(const void *s, int c, size_t n)
 			findchar = temp;
 		}
 	}
-	return findchar;
+	return (findchar);
 }
 /*#include<stdio.h>
 #include<string.h>

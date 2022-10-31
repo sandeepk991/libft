@@ -6,14 +6,15 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:08:53 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/14 11:41:39 by skaur            ###   ########.fr       */
+/*   Updated: 2022/10/31 13:35:31 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 size_t	ft_strlen(const char *s)
 {
-	size_t len;
+	size_t	len;
 
 	len = 0;
 	while (*s != '\0')

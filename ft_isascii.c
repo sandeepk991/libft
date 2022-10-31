@@ -6,11 +6,12 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 14:01:58 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/14 11:21:46 by skaur            ###   ########.fr       */
+/*   Updated: 2022/10/31 11:51:16 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
@@ -18,7 +19,6 @@ int	ft_isascii(int c)
 	else
 		return (0);
 }
- 
 /*#include<stdio.h>
 int main(void)
 {
@@ -32,4 +32,4 @@ int main(void)
          printf("Cannot be represented by an ASCII character\n");
    }
    return 0;
-}/*
+}*/

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 12:48:02 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/21 14:59:33 by skaur            ###   ########.fr       */
+/*   Created: 2022/10/31 10:37:53 by skaur             #+#    #+#             */
+/*   Updated: 2022/10/31 12:11:52 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,38 @@ int	ft_nbrlen(int n)
 	size_t	len;
 
 	len = 0;
-	if  (n <= 0)
+	while (n)
 	{
-
+		n = n / 10;
+		len++;
+	}
+	return (len);
 }
+
 char	*ft_itoa(int n)
 {
-	size_t	nbr;
 	size_t	nbr_len;
-	int	sign;
+	size_t	i;
 	char	*result;
 
-	nbr = n;
+	i = 0;
 	nbr_len = ft_nbrlen(n);
-	sign = 1;
-	if (!(result = (char *)malloc(sizeof(char) * (len + 1))))
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	result = (char *)malloc(sizeof(char) * (nbr_len + 1));
+	if (result == NULL)
 		return (0);
-	while (nbr < 0)
+	result[nbr_len] = '\0';
+	if (n < 0)
 	{
-		sign = sign * -1;
-		nbr = -nbr;
-	while (nbr > 0)
+		result[0] = '-';
+		n = n * -1;
+		i += 1;
+	}
+	while (i < nbr_len--)
 	{
 		nbr = nbr / 10;
-		result += char(nbr % 10 + '0');
+		result = result + char ((nbr % 10) + '0');
 	}
-	if (sign < 0)
-
-
+	return (result);
 }
