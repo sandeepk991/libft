@@ -6,7 +6,7 @@
 #    By: skaur <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 10:01:21 by skaur             #+#    #+#              #
-#    Updated: 2022/10/31 14:41:07 by skaur            ###   ########.fr        #
+#    Updated: 2022/10/31 16:14:17 by skaur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,17 +39,29 @@ BONUS_FILES = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
 	ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
 	ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-FILES = $(MAIN_FILES) $(BONUS_FILES)
+OBJ_MAIN_FILES = $(MAIN_FILES:.c=.o)
 
-OBJ_FILES = $(FILES:.c=.o)
+OBJ_BONUS_FILES = $(BONUS_FILES:.c=.o)
 
 .PHONY: all clean fclean re
 
-all : $(NAME)
+OBJ = $(MAIN_FILES:.c=.o)
 
-$(NAME) : $(FILES)
-	@$(CC) $(CFLAGS) $(FILES)
-	@$(AR) $(OBJ_FILES)
+BONUS_OBJ = $(BONUS_FILES:.c=.o)
+
+all:    $(NAME)
+
+$(NAME):        $(OBJ)
+	@$(AR) $@ $(OBJ)
+	@echo "$(NAME) Main Files are created"
+	@ranlib $@
+	
+$(OBJ):         $(MAIN_FILES)
+	@$(CC) $(CFLAGS) $(MAIN_FILES)
+
+bonus:          $(BONUS_FILES)
+	@$(CC) $(CFLAGS) $(BONUS_FILES)
+	@$(AR) $(NAME) $(BONUS_OBJ)
 
 clean : 
 	@$(RM) $(RMFLAGS) $(OBJ_FILES)

@@ -6,7 +6,7 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 08:21:55 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/31 12:38:34 by skaur            ###   ########.fr       */
+/*   Updated: 2022/10/31 15:41:41 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ t_list	*ft_lstnew(void *content)
 	if (new_node == NULL)
 		return (0);
 	new_node->content = content;
-	content->next = '\0';
+	new_node->next = NULL;
 	return (new_node);
 }

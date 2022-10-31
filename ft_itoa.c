@@ -6,7 +6,7 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:37:53 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/31 12:11:52 by skaur            ###   ########.fr       */
+/*   Updated: 2022/10/31 15:24:45 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ char	*ft_itoa(int n)
 	}
 	while (i < nbr_len--)
 	{
-		nbr = nbr / 10;
-		result = result + char ((nbr % 10) + '0');
+		n = n / 10;
+		result = result + ((n % 10) + '0');
 	}
 	return (result);
 }
