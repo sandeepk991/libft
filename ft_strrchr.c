@@ -6,7 +6,7 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 09:11:58 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/31 13:46:47 by skaur            ###   ########.fr       */
+/*   Updated: 2022/11/01 16:49:48 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,19 @@ char	*ft_strrchr(const char *str, int c)
 		while (*str++)
 		{
 			if (*str == (char)c)
-			{
 				temp = (char *)str;
-			}
 		}
+		return (temp);
 	}
-	return (temp);
+	return (0);
 }
 /*#include<stdio.h>
 #include<string.h>
 int	main(void)
 {
 	int len;
-	const char str[] = "helloworld";
-	const char ch = '.';
+	const char str[] = "bonjour";
+	const char ch = 'o';
 	char *result;
 	char *result1;
 	result = ft_strrchr(str, ch);

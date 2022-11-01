@@ -6,7 +6,7 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:51:09 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/31 12:58:43 by skaur            ###   ########.fr       */
+/*   Updated: 2022/11/01 13:04:51 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		return (0);
 	if (dest > src && dest < src + n)
 	{
-		des = dest + n;
-		s = src + n;
+		des = (unsigned char *)dest + n;
+		s = (unsigned char *)src + n;
 		while (n-- > 0)
 		{
 			*des-- = *s--;
@@ -37,17 +37,17 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 			*des++ = *s++;
 		}
 	}
-	return (dest);
+	return (des);
 }
 /*#include <stdio.h>
 #include <string.h>
 int main () {
-   char dest[] = "11ldstring";
-   const char src[]  = "newstring";
+   char dest[22];
+   const char src[]  = "lorem ipum dolor sit a";
 
-   printf("Before memmove dest = %s, src = %s\n", dest, src);
- ft_memmove(dest, src, 9);
-   printf("After memmove dest = %s, src = %s\n", dest, src);
+   printf("Before memmove dest = \n%s\n", dest);
+ ft_memmove(dest, src, 22);
+   printf("After memmove dest = \n%s\n", dest);
 
    return(0);
 }*/

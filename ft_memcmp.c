@@ -6,7 +6,7 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 09:40:52 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/31 12:56:36 by skaur            ###   ########.fr       */
+/*   Updated: 2022/11/01 13:37:13 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	while (*temp1 != '\0' && *temp2 != '\0' && i < n)
 	{
-		return (*temp1 - *temp2);
+		return (*(temp1 + i) - *(temp2 + i));
 		i++;
 	}
 	if (i != n)
 	{
-		return (*temp1 - *temp2);
+		return (*(temp1 + i) - *(temp2 + i));
 	}
 	return (0);
 }

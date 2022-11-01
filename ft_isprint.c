@@ -6,7 +6,7 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:53:32 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/31 11:53:02 by skaur            ###   ########.fr       */
+/*   Updated: 2022/11/01 12:05:14 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c <= 127)
+	if (c >= 32 && c <= 126)
 		return (1);
 	else
 		return (0);
@@ -24,7 +24,7 @@ int	main(void)
 {
 	int	a;
 
-	a = '@';
+	a = '{';
 	if (ft_isprint(a))
 		printf("'%c' is a printable character. \n", a);
 	else

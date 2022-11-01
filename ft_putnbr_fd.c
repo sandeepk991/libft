@@ -6,7 +6,7 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:17:52 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/31 15:28:19 by skaur            ###   ########.fr       */
+/*   Updated: 2022/11/01 14:22:45 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,21 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
+	unsigned int	nbr;
+
+	nbr = n;
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(-n, fd);
+		nbr = -n;
 	}
-	else if (n > 9)
+	if (nbr > 9)
 	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
+		ft_putnbr_fd(nbr / 10, fd);
+		ft_putnbr_fd(nbr % 10, fd);
 	}
 	else
 	{
-		ft_putchar_fd(n + '0', fd);
+		ft_putchar_fd(nbr + '0', fd);
 	}
 }
