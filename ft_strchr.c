@@ -26,10 +26,13 @@ char	*ft_strchr(const char *s, int c)
 #include<string.h>
 int main(void)
 {
-	const char str[] = "helloworld";
+	const char str[] = "tripouille";
 	const char ch = '.';
 	char *result;
-	result = ft_strchr(str, ch);
-	printf("String after '%c' is - %s\n", ch, result);
+	char *result1;
+	result = (ft_strchr(str, 't' + 256) == str);
+	result1 = (strchr(str, 't' + 256) == str);
+	printf("String after is - %s\n", result);
+	printf(strchr(str, 't' + 256) == str);
 	return(0);
 }*/
