@@ -14,35 +14,30 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*temp;
-	unsigned char	*findchar;
+	const unsigned char	*temp;
 
-	findchar = '\0';
-	temp = (unsigned char *)s;
-	while (*temp != '\0' && n--)
+	temp = (const unsigned char *)s;
+	while (n-- > 0)
 	{
-		if (*temp != (unsigned char)c)
+		if (*temp == (unsigned char)c)
 		{
-			temp++;
+			return ((void *)temp);
 		}
-		else
-		{
-			findchar = temp;
-		}
+		temp++;
 	}
-	return (findchar);
+	return (0);
 }
 /*#include<stdio.h>
 #include<string.h>
 
 int main () 
 {
-   const char str[] = "round the zoo";
-   const char ch = 't';
+   const char str[] = "bonjour";
+   const char ch = 's';
    char *result;
    char *result1;
 
-   result = memchr(str, ch, 5);
+   result = memchr(str, ch, 7);
 
    printf("For built-in:  String after '%c' is - '%s'\n", ch, result);
 

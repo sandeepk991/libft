@@ -14,40 +14,40 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char		*des;
-	const unsigned char	*s;
+	size_t	i;
 
 	if (!dest && !src)
 		return (0);
-	if (dest > src && dest < src + n)
+	i = 0;
+	if ((size_t)dest - (size_t)src < n)
 	{
-		des = (unsigned char *)dest + n;
-		s = (unsigned char *)src + n;
-		while (n-- > 0)
+		i = n - 1;
+		while (i < n)
 		{
-			*des-- = *s--;
+			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+			i--;
 		}
 	}
 	else
 	{
-		des = dest;
-		s = src;
-		while (n-- > 0)
+		while (i < n)
 		{
-			*des++ = *s++;
+			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+			i++;
 		}
 	}
-	return (des);
+	return (dest);
 }
 /*#include <stdio.h>
 #include <string.h>
-int main () {
-   char dest[22];
-   const char src[]  = "lorem ipum dolor sit a";
+int main (void)
+{
+   long int dest[100];
+   //const char src[]  = "lorem ipum dolor sit a";
 
-   printf("Before memmove dest = \n%s\n", dest);
- ft_memmove(dest, src, 22);
-   printf("After memmove dest = \n%s\n", dest);
+   //printf("Before memmove dest = \n%s\n", dest);
+ ft_memmove(0x7ffcbc1078a0, 0x7ffcbc1078a2: "123456", 4);
+   printf("After memmove dest = \n%ld\n", dest);
 
    return(0);
 }*/

@@ -14,18 +14,13 @@
 
 char	*ft_strrchr(const char *str, int c)
 {
-	char	*temp;
+	size_t	str_len;
 
-	temp = '\0';
-	if (*str != '\0')
-	{
-		while (*str++)
-		{
-			if (*str == (char)c)
-				temp = (char *)str;
-		}
-		return (temp);
-	}
+	str_len = ft_strlen(str);
+	while (str_len != 0 && *(str + str_len) != c)
+		str_len--;
+	if (*(str + str_len) == c)
+		return ((char *)(str + str_len));
 	return (0);
 }
 /*#include<stdio.h>
@@ -33,8 +28,8 @@ char	*ft_strrchr(const char *str, int c)
 int	main(void)
 {
 	int len;
-	const char str[] = "bonjour";
-	const char ch = 'o';
+	const char str[] = "";
+	const char ch = '\0';
 	char *result;
 	char *result1;
 	result = ft_strrchr(str, ch);

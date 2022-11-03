@@ -12,43 +12,53 @@
 
 #include "libft.h"
 
-int	ft_nbrlen(int n)
+static size_t    ft_count_digist(int n)
 {
-	size_t	len;
+    size_t count;
 
-	len = 0;
-	while (n)
-	{
-		n = n / 10;
-		len++;
-	}
-	return (len);
+    count = 0;
+    while (n)
+    {
+        n /= 10;
+        count++;
+    }
+    return (count);
 }
 
-char	*ft_itoa(int n)
+static void        ft_write_nbrber(char *dest, unsigned int n)
 {
-	size_t	nbr_len;
-	size_t	i;
-	char	*result;
-
-	i = 0;
-	nbr_len = ft_nbrlen(n);
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	result = (char *)malloc(sizeof(char) * (nbr_len + 1));
-	if (result == NULL)
-		return (0);
-	result[nbr_len] = '\0';
-	if (n < 0)
-	{
-		result[0] = '-';
-		n = n * -1;
-		i += 1;
-	}
-	while (i < nbr_len--)
-	{
-		n = n / 10;
-		result = result + ((n % 10) + '0');
-	}
-	return (result);
+    if (n < 10)
+        *dest = n + '0';
+    else
+    {
+        *dest = n % 10 + '0';
+        ft_write_nbrber(dest - 1, n / 10);
+    }
 }
+
+char            *ft_itoa(int n)
+{
+    unsigned int    nbr;
+    char            *result;
+    size_t            len;
+
+    nbr = n;
+    if (n == 0)
+        return (ft_strdup("0"));
+    else
+    {
+        len = n < 0 ? ft_count_digist(n) + 1 : ft_count_digist(n);
+        if (!(result = (char *)malloc(sizeof(char) * (len + 1))))
+            return (0);
+        ft_write_nbrber((result + len - 1), n < 0 ? -nbr : nbr);
+        //negative numbers must be handled
+        if (n < 0)
+            *result = '-';
+        result[len] = '\0';
+    }
+    return (result);
+}
+/*int main() {
+    printf(ft_itoa(-3));
+    return 0;
+}*/

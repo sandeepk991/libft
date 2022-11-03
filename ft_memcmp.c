@@ -16,19 +16,15 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*temp1;
 	unsigned char	*temp2;
-	size_t			i;
 
 	temp1 = (unsigned char *)s1;
 	temp2 = (unsigned char *)s2;
-	i = 0;
-	while (*temp1 != '\0' && *temp2 != '\0' && i < n)
+	while (n-- > 0)
 	{
-		return (*(temp1 + i) - *(temp2 + i));
-		i++;
-	}
-	if (i != n)
-	{
-		return (*(temp1 + i) - *(temp2 + i));
+		if (*temp1 != *temp2)
+			return (*temp1 - *temp2);
+		temp1++;
+		temp2++;
 	}
 	return (0);
 }
@@ -38,10 +34,10 @@ int main (void)
 {
     int result = 0;
     int result1 = 0;
-    char s1[] = "Hello";
-    char s2[] = "Hello";
+    char s1[] = "t\200";
+    char s2[] = "t\0";
     printf("\nbuilt-in function:\n");
-    result1 = memcmp(s1, s2, 5);
+    result1 = memcmp(s1, s2, 2);
     if(result1 > 0)
     {
         printf("s2 is less than s1");
@@ -56,7 +52,7 @@ int main (void)
     }
 
     printf("\n\nuser-defined function:\n");
-    result = ft_memcmp(s1, s2, 5);
+    result = ft_memcmp(s1, s2, 2);
     if(result > 0)
     {
         printf("s2 is less than s1");

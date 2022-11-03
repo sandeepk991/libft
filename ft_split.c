@@ -12,85 +12,66 @@
 
 #include "libft.h"
 
-static size_t	ft_wordlen(char const *s, char c)
+static int	count_words(const char *str, char c)
 {
-	size_t	len;
-
-	len = 0;
-	while (*s && *s++ != c)
-		len++;
-	return (len);
-}
-
-static size_t	ft_count_word(char const *s, char c)
-{
-	size_t	count;
-
-	count = 0;
-	while (*s && *s == c)
-		s++;
-	while (*s)
-	{
-		count++;
-		while (*s && *s != c)
-			s++;
-		while (*s && *s == c)
-			s++;
-	}
-	return (count);
-}
-
-static char	*ft_strndup(const char *s, size_t n)
-{
-	size_t	i;
-	char	*result;
-
-	result = (char *)malloc(sizeof(char) * (n + 1));
-	if (result == NULL)
-		return (0);
+	int	i;
+	int	trigger;
+	
 	i = 0;
-	while (i < n)
+	trigger = 0;
+	while (*str)
 	{
-		result[i] = s[i];
-		i++;
+		if (*str != c && trigger == 0)
+		{
+			trigger = 1;
+			i++;
+		}
+		else if (*str == c)
+			trigger = 0;
+		str++;
 	}
-	result[i] = 0;
-	return (result);
+	return (i);
 }
 
-static void	ft_free_arr(char **s, int i)
+static char	*word_dup(const char *str, int start, int finish)
 {
-	while (i--)
-		free(s[i]);
-	free(s);
+	char	*word;
+	int	i;
+	
+	i = 0;
+	word = malloc((finish - start + 1) * sizeof(char));
+	while (start < finish)
+		word[i++] = str[start++];
+	word[i] = '\0';
+	return (word);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**result;
-	size_t	count;
-	size_t	word_len;
+	char	**split;
+	int	index;
 	size_t	i;
-
-	count = ft_count_word(s, c);
-	result = (char **)malloc(sizeof(char *) * (count + 1));
-	if (result == NULL)
-		return (0);
+	size_t	j;
+	
 	i = 0;
-	while (i < count)
-	{
-		while (*s && *s == c)
-			s++;
-		word_len = ft_wordlen(s, c);
-		result[i] = ft_strndup(s, word_len);
-		if (result == NULL)
-			ft_free_arr(result, i - 1);
+	j = 0;
+	split = malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!s || !split)
 		return (0);
-		s += word_len;
+	index = -1;
+	while (i <= ft_strlen(s))
+	{
+		if (s[i] != c && index < 0)
+			index = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
+		{
+			split[j++] = word_dup(s, index, i);
+			index = -1;
+		}
 		i++;
 	}
-	result[count] = 0;
-	return (result);
+	split[j] = 0;
+	return (split);
 }
 /*#include<stdio.h>
 #include<string.h>

@@ -14,27 +14,24 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*p;
-	size_t	c;
-
-	c = 0;
-	p = malloc(len + 1);
-	if (p == NULL)
-	{
-		exit(1);
-	}
-	while (c < len)
-	{
-		*(p + c) = *(s + start - 1);
-		s++;
-		c++;
-	}
-	*(p + c) = '\0';
-	return (p);
+	char	*new_str;
+	size_t	i;
+	size_t	j;
+	
+	new_str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!s || !new_str)
+		return (0);
+	i = start;
+	j = 0;
+	while (i < ft_strlen(s) && j < len)
+		new_str[j++] = s[i++];
+	new_str[j] = '\0';
+	return (new_str);
 }
-/*int main(void)
+/*#include<stdio.h>
+int main(void)
 {
-   char string[100] = "code";
+   char string[100] = "lorem ipsum dolor sit amet";
    char *p;
    int position, length;
 
