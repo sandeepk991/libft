@@ -6,7 +6,7 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 10:18:03 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/31 13:16:39 by skaur            ###   ########.fr       */
+/*   Updated: 2022/11/04 11:20:07 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,29 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*newstr;
-	size_t	s1_len;
-	size_t	s2_len;
+	int		i;
+	int		j;
 
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	newstr = (char *)malloc(sizeof(char) + (s1_len + s2_len + 1));
+	newstr = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (newstr == NULL)
 		return (0);
-	ft_memcpy(newstr, s1, s1_len);
-	ft_memcpy(newstr + s1_len, s2, s2_len);
-	newstr[s1_len + s2_len] = '\0';
+	i = 0;
+	j = 0;
+	while (s1[i])
+		newstr[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		newstr[j++] = s2[i++];
+	newstr[j] = '\0';
 	return (newstr);
 }
+/*#include <stdio.h>
+#include <string.h>
+int main()
+{
+    //char const destination[] = "Hello ";
+    char const source[] = "";
+    printf("%s", ft_strjoin("tripouille", "42")); 
+    //printf("%s", strcat("tripouille", "42"));
+    return 0;
+}*/

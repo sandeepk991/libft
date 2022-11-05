@@ -6,7 +6,7 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:04:28 by skaur             #+#    #+#             */
-/*   Updated: 2022/10/31 13:19:36 by skaur            ###   ########.fr       */
+/*   Updated: 2022/11/04 08:36:15 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	len;
-	
+
 	len = 0;
 	while (dst[len] && len < size)
 		len += 1;

@@ -6,7 +6,7 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:37:53 by skaur             #+#    #+#             */
-/*   Updated: 2022/11/01 13:06:28 by skaur            ###   ########.fr       */
+/*   Updated: 2022/11/04 08:49:21 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static size_t	count_nbr(int n)
 {
 	size_t	count;
-	
+
 	count = 0;
 	while (n)
 	{
@@ -38,10 +38,10 @@ static void	ft_cpynbr(char *dest, unsigned int n)
 
 char	*ft_itoa(int n)
 {
-	char		*result;
-	size_t		nbr_len;
-	unsigned int		nbr;
-	
+	char			*result;
+	size_t			nbr_len;
+	unsigned int	nbr;
+
 	nbr = n;
 	if (n == 0)
 		return (ft_strdup("0"));

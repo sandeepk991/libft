@@ -6,7 +6,7 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 11:31:51 by skaur             #+#    #+#             */
-/*   Updated: 2022/11/01 11:52:34 by skaur            ###   ########.fr       */
+/*   Updated: 2022/11/04 08:58:57 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	count_words(const char *str, char c)
 {
 	int	i;
 	int	trigger;
-	
+
 	i = 0;
 	trigger = 0;
 	while (*str)
@@ -36,8 +36,8 @@ static int	count_words(const char *str, char c)
 static char	*word_dup(const char *str, int start, int finish)
 {
 	char	*word;
-	int	i;
-	
+	int		i;
+
 	i = 0;
 	word = malloc((finish - start + 1) * sizeof(char));
 	while (start < finish)
@@ -48,11 +48,11 @@ static char	*word_dup(const char *str, int start, int finish)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**split;
-	int	index;
-	size_t	i;
-	size_t	j;
-	
+	char		**split;
+	int			index;
+	size_t		i;
+	size_t		j;
+
 	i = 0;
 	j = 0;
 	split = malloc((count_words(s, c) + 1) * sizeof(char *));

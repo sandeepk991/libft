@@ -6,7 +6,7 @@
 /*   By: skaur <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 14:27:29 by skaur             #+#    #+#             */
-/*   Updated: 2022/11/01 13:20:00 by skaur            ###   ########.fr       */
+/*   Updated: 2022/11/04 08:37:12 by skaur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct s_list
 {
-	void		*content;
+	void			*content;
 	struct s_list	*next;
 }			t_list;
 
